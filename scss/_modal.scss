@@ -1,0 +1,124 @@
+.modal-window {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 3;
+	background-color: rgba($color: $black, $alpha: 0.45);
+
+	.modal-window-container {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 48.75rem;
+		max-width: 90%;
+		height: 500px;
+		background: $yellow;
+		color: $black;
+		box-shadow: 4px 4px 4px 2px rgba($color: $black, $alpha: 0.25);
+	}
+
+	.dismiss-button {
+		position: absolute;
+		appearance: none;
+		border: none;
+		background: none;
+		cursor: pointer;
+	}
+
+	.close {
+		width: 48px;
+		height: 48px;
+		top: 0;
+		right: 0;
+	}
+
+	.no-thanks {
+		bottom: 2rem;
+		right: 25%;
+		transform: translateX(50%);
+
+		@media (max-width: 960px) {
+			right: 50%;
+		}
+	}
+}
+
+.ionicon {
+	display: block;
+	width: 35px;
+	height: 35px;
+}
+
+.modal-image,
+.modal-form {
+	flex: 0 0 50%;
+	margin: 0;
+	padding: 2rem;
+
+	@media (max-width: 960px) {
+		flex: 0 0 100%;
+	}
+}
+
+.modal-image {
+	position: relative;
+	max-width: 100%;
+	height: 500px;
+
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	@media (max-width: 960px) {
+		display: none;
+	}
+}
+
+.form {
+	.modal-form & {
+		.input {
+			width: 100%;
+			margin-bottom: 0.5rem;
+			padding: 1rem;
+			border: 2px solid darken($yellow, 10%);
+		}
+
+		input[type="submit"] {
+			width: 100%;
+			padding: 1rem;
+			text-align: center;
+			appearance: none;
+			border: 2px solid $black;
+			background-color: $black;
+			color: $white;
+			cursor: pointer;
+			transition: all 300ms ease-in-out;
+
+			&:hover,
+			&:active,
+			&:focus {
+				border: 2px solid darken($yellow, 10%);
+				background-color: darken($yellow, 10%);
+				color: $black;
+			}
+		}
+	}
+}
+
+.description {
+	.modal-form & {
+		text-align: center;
+
+		p {
+			font-size: 1.25rem;
+		}
+	}
+}
