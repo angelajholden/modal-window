@@ -18,6 +18,10 @@ body {
 	line-height: 1.65;
 	color: $white;
 	background-color: $purple;
+
+	&.active {
+		overflow-y: hidden;
+	}
 }
 
 img {

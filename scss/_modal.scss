@@ -1,4 +1,5 @@
 .modal-window {
+	display: none;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -7,11 +8,15 @@
 	z-index: 3;
 	background-color: rgba($color: $black, $alpha: 0.45);
 
+	&.active {
+		display: block;
+	}
+
 	.modal-window-container {
 		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
+		top: calc(50% - 250px);
+		left: calc(50% - 390px);
+		// transform: translate(-50%, -50%);
 		width: 48.75rem;
 		max-width: 90%;
 		height: 500px;
@@ -120,5 +125,38 @@
 		p {
 			font-size: 1.25rem;
 		}
+	}
+}
+
+.modal-button {
+	display: none;
+	appearance: none;
+	position: fixed;
+	bottom: 10px;
+	left: 10px;
+	width: 200px;
+	height: 50px;
+	border-radius: 15px;
+	border: none;
+	background-color: $mint-green;
+	cursor: pointer;
+	z-index: 3;
+
+	&.active {
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		justify-content: space-evenly;
+	}
+
+	span,
+	svg {
+		display: block;
+		color: $black;
+	}
+
+	svg {
+		width: 25px;
+		height: 25px;
 	}
 }
