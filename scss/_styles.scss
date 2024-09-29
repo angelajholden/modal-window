@@ -62,7 +62,6 @@ a {
 	padding: 1rem;
 
 	.nav-wrap {
-		// margin: 0;
 		padding: 0;
 		list-style: none;
 	}
@@ -71,6 +70,11 @@ a {
 .main {
 	font-size: 2rem;
 	min-height: calc(100vh - 116.8px);
+}
+
+.primary-header {
+	margin-bottom: 0;
+	line-height: 1.25;
 }
 
 .footer {

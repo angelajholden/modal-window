@@ -1,25 +1,20 @@
 .modal-window {
-	display: none;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 3;
-	background-color: rgba($color: $black, $alpha: 0.45);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 48.75rem;
+	max-width: 90%;
+	height: 500px;
+	padding: 0;
+	margin: 0;
 
-	&.active {
-		display: block;
+	&::backdrop {
+		background-color: rgba($color: $black, $alpha: 0.45);
 	}
 
 	.modal-window-container {
-		position: absolute;
-		top: calc(50% - 250px);
-		left: calc(50% - 390px);
-		// transform: translate(-50%, -50%);
-		width: 48.75rem;
-		max-width: 90%;
-		height: 500px;
+		height: 100%;
 		background: $yellow;
 		color: $black;
 		box-shadow: 4px 4px 4px 2px rgba($color: $black, $alpha: 0.25);
@@ -128,8 +123,12 @@
 	}
 }
 
-.modal-button {
-	display: none;
+.modal-open-button {
+	display: block;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: space-evenly;
 	appearance: none;
 	position: fixed;
 	bottom: 10px;
@@ -142,13 +141,6 @@
 	cursor: pointer;
 	z-index: 3;
 
-	&.active {
-		display: flex;
-		flex-flow: row nowrap;
-		align-items: center;
-		justify-content: space-evenly;
-	}
-
 	span,
 	svg {
 		display: block;
@@ -158,5 +150,12 @@
 	svg {
 		width: 25px;
 		height: 25px;
+	}
+}
+
+// Hide the button when the body has the active class and the modal dialog is open
+body.active {
+	.modal-open-button {
+		display: none;
 	}
 }

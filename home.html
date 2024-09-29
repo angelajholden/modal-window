@@ -10,8 +10,8 @@
 		<link rel="stylesheet" href="main.css" />
 	</head>
 	<body>
-		<div class="modal-window">
-			<div class="modal-window-container animate__animated animate__fadeInUp">
+		<dialog class="modal-window">
+			<div class="modal-window-container animate__animated animate__fadeIn">
 				<button class="dismiss-button close">
 					<span id="close" class="access-hidden">Close</span>
 					<svg aria-hidden="true" aria-labelledby="close" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="#222" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M368 368L144 144M368 144L144 368" /></svg>
@@ -34,8 +34,9 @@
 				</div>
 				<button class="dismiss-button no-thanks">No Thanks</button>
 			</div>
-		</div>
-		<button class="modal-button">
+		</dialog>
+
+		<button class="modal-open-button">
 			<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="#222" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M368 368L144 144M368 144L144 368" /></svg>
 			<span>Save 10% Today</span>
 		</button>

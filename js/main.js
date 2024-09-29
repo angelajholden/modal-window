@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
 	const body = document.querySelector("body");
-	const modal = document.querySelector(".modal-window");
+	const dialog = document.querySelector(".modal-window");
 	const modalWindowContainer = document.querySelector(".modal-window-container");
-	const modalButton = document.querySelector(".modal-button");
+	const openButton = document.querySelector(".modal-open-button");
+	const closeButton = document.querySelectorAll(".dismiss-button");
 
 	function createCookie(name, value, hours, isProduction = false) {
 		let expires = "";
@@ -30,39 +31,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// Function to open the modal
 	const openModal = () => {
-		modal.classList.add("active");
+		dialog.showModal(); // Show the dialog
 		body.classList.add("active");
-		modalButton.classList.remove("active");
 	};
 
 	// Function to close the modal
 	const closeModal = () => {
-		modal.classList.remove("active");
+		dialog.close();
 		body.classList.remove("active");
-		modalButton.classList.add("active");
 		createCookie("modalWindowDismiss", true, 168);
 	};
 
-	// Add a click event listener to the modal button
-	modalButton.addEventListener("click", openModal);
-
-	// Add a click event listener to the modal window for outside clicks
-	modal.addEventListener("click", function (event) {
-		// Check if the clicked element is outside the modal-window-container
-		if (!modalWindowContainer.contains(event.target)) {
+	// Handle Esc key press or any other method that triggers the dialog.close()
+	function handleKeyDown(event) {
+		if (event.key === "Escape" || event.keyCode === 27) {
 			closeModal();
+		}
+	}
+	// Listen for the Esc key press
+	document.addEventListener("keydown", handleKeyDown);
+
+	// Close the dialog when clicking outside of the modal content
+	dialog.addEventListener("click", (event) => {
+		if (!modalWindowContainer.contains(event.target)) {
+			closeModal(); // Close the modal when clicking outside the container
 		}
 	});
 
+	// Add a click event listener to the modal button
+	openButton.addEventListener("click", openModal);
+
 	// Add a listener to all dismiss buttons to close the modal
-	document.querySelectorAll(".dismiss-button").forEach((button) => {
+	closeButton.forEach((button) => {
 		button.addEventListener("click", closeModal);
 	});
 
-	// Example: Automatically open the modal after a delay
+	// Check for the cookie and either open the modal or show the button
 	if (!readCookie("modalWindowDismiss")) {
+		body.classList.add("active");
 		setTimeout(openModal, 2000);
 	} else {
-		modalButton.classList.add("active");
+		openButton.classList.add("active");
 	}
 });
