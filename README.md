@@ -21,7 +21,7 @@ _This project is part of a free, open-source series focused on helping newer dev
 
 ## 🔗 See the site live
 
--   [Live demo on Heroku](https://modal-window-f0e67a700e40.herokuapp.com/)
+-   [Live demo on Github Pages](https://angelajholden.github.io/modal-window/)
 
 ---
 
